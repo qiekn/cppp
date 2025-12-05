@@ -1,4 +1,4 @@
-# CPP Practice
+# Cpp Practice
 
 ## Build
 
