@@ -20,7 +20,7 @@ fi
 
 # Compile
 echo "🔨 Building $target with $jobs cores..."
-cmake --build "$build_dir" --target "$target" -j "$jobs"
+cmake -B build && cmake --build "$build_dir" --target "$target" -j "$jobs"
 
 
 # Run if build succeeded
