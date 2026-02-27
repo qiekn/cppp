@@ -5,14 +5,26 @@ This is my C++ practice codes. See my blog notes at [qiekn.notion.site/cpp](http
 ## Build
 
 ```shell
-cmake -S . -B build && cmake --build -j$(nproc)
+cmake -S . -B build && cmake --build build -j$(nproc)
 ```
 
 Or you can compile only the selected file.
 ```shell
-mkdir build && cd build
-make <name> -j$(nproc)
-./<name> # or ./<name>.exe
+cmake --build build --target <name> -j$(nproc)
+./build/<name> # or ./build/<name>.exe
+```
+
+## Test
+
+Tests use [GoogleTest](https://github.com/google/googletest) (fetched automatically via CMake FetchContent). Test files live in `test/` and must be named `*_test.cpp`.
+
+```shell
+# build and run all tests
+cmake --build build -j$(nproc) && ctest --test-dir build --output-on-failure
+
+# build and run a single test
+cmake --build build --target <test_name> -j$(nproc)
+./build/<test_name>
 ```
 
 ## Neovim
