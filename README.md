@@ -29,6 +29,8 @@ cmake --build build --target <test_name> -j$(nproc)
 
 ## Neovim
 
+We don't this this command anymore. See: [qiekn/code-runner.nvim](https://github.com/qiekn/code-runner.nvim)
+
 ```lua
 -- Code Runner
 vim.api.nvim_create_user_command("Run", function()
