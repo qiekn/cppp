@@ -9,6 +9,9 @@ export {
 
     double length() const;
     vec3 normalized() const;
+
+    double operator[](int i) const;
+    double& operator[](int i);
   };
 
   vec3 operator+(const vec3& a, const vec3& b);

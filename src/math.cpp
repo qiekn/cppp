@@ -1,6 +1,6 @@
 module;
-
 #include <cmath>
+#include <stdexcept>
 
 module math;
 
@@ -15,6 +15,26 @@ double vec3::length() const {
 vec3 vec3::normalized() const {
   double len = length();
   return {x / len, y / len, z / len};
+}
+
+double vec3::operator[](int i) const {
+  switch (i) {
+    case 0: return x;
+    case 1: return y;
+    case 2: return z;
+    default:
+      throw std::out_of_range("vec3 index out of range");
+  }
+}
+
+double& vec3::operator[](int i) {
+  switch (i) {
+    case 0: return x;
+    case 1: return y;
+    case 2: return z;
+    default:
+      throw std::out_of_range("vec3 index out of range");
+  }
 }
 
 vec3 operator+(const vec3& a, const vec3& b) {
